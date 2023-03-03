@@ -31,9 +31,11 @@ public class PoetController {
         List<Map<String, Object>> list1 = JSON.parseObject(str, new TypeReference<List<Map<String, Object>>>() {
         });
         List<Map<String, Object>> list2 = new ArrayList<Map<String, Object>>();
-        for (int i = 0; i < list1.size(); ++i) {
-            if (list1.get(i).get("author").toString().equals(map.get("author").toString())) {
-                list2.add(list1.get(i));
+        if(map.get("author") != null) {
+            for (int i = 0; i < list1.size(); ++i) {
+                if (list1.get(i).get("author").toString().equals(map.get("author").toString())) {
+                    list2.add(list1.get(i));
+                }
             }
         }
         return list2;
