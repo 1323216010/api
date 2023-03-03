@@ -9,6 +9,6 @@ axios.interceptors.response.use(res => {
 })
 
 
-axios.get('/poet?author=李白').then( res => {
+axios.get('/poet', {params: {author: "李白"}}).then( res => {
     console.log(res)
 })
