@@ -3,7 +3,7 @@ var app = express();
 
 var fs = require("fs");
 
-app.get('/listPoet', function (req, res) {
+app.get('/poet', function (req, res) {
     fs.readFile(__dirname + '/json/poet300.json', 'utf8', function (err, str) {
         arr = JSON.parse(str);
         let poet = []
