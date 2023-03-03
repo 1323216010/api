@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	p := string(os.PathSeparator)
+	sep := string(os.PathSeparator)
 	path, _ := filepath.Abs("..")
-	path = path + p + "go-server" + p + "json" + p + "poet300.json"
+	path = path + sep + "go-server" + sep + "json" + sep + "poet300.json"
 	data, _ := os.ReadFile(path)
 	var m []map[string]interface{}
 	_ = json.Unmarshal(data, &m)
