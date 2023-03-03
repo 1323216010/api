@@ -1,0 +1,12 @@
+{
+    "name": "js-server",
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+      "start": "node main.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+}
+  

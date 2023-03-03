@@ -1,11 +1,19 @@
-var express = require('express');
-var app = express();
+import path from 'path';
+import {fileURLToPath} from 'url';
+import express from 'express'
+import fs from 'fs'
 
-var fs = require("fs");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+var app = express();
 
 app.get('/poet', function (req, res) {
     fs.readFile(__dirname + '/json/poet300.json', 'utf8', function (err, str) {
-        arr = JSON.parse(str);
+        if(err) {
+            console.log(err)
+        }
+        let arr = JSON.parse(str);
         let poet = []
         for(let i =0; i < arr.length; i++){
             if(arr[i].author === req.query.author) {
