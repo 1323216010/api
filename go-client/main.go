@@ -14,7 +14,7 @@ func main() {
 	str, _ := json.Marshal(m)
 	reader := bytes.NewReader(str)
 
-	request, _ := http.NewRequest("GET", "http://localhost:8083/poet", reader)
+	request, _ := http.NewRequest("GET", "http://localhost:8082/poet", reader)
 	request.Header.Set("Content-Type", "application/json;charset=utf-8")
 	resp, _ := http.DefaultClient.Do(request)
 	defer resp.Body.Close()
