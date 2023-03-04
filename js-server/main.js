@@ -1,7 +1,6 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 import express from 'express'
-import fs from 'fs'
 import arr from './json/poet300.json' assert {type: 'json'}
 
 const __filename = fileURLToPath(import.meta.url)
