@@ -1,28 +1,23 @@
-import path from 'path';
-import {fileURLToPath} from 'url';
+import path from 'path'
+import { fileURLToPath } from 'url'
 import express from 'express'
 import fs from 'fs'
+import arr from './json/poet300.json' assert {type: 'json'}
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-var app = express();
+var app = express()
 
 app.get('/poet', function (req, res) {
-    fs.readFile(__dirname + '/json/poet300.json', 'utf8', function (err, str) {
-        if(err) {
-            console.log(err)
+    let poet = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].author === req.query.author) {
+            poet.push(arr[i])
         }
-        let arr = JSON.parse(str);
-        let poet = []
-        for(let i =0; i < arr.length; i++){
-            if(arr[i].author === req.query.author) {
-                poet.push(arr[i])
-            }
-        }
-        res.setHeader('Content-Type', 'application/json; charset=utf8');
-        res.end(JSON.stringify(poet));
-    });
+    }
+    res.setHeader('Content-Type', 'application/json; charset=utf8');
+    res.end(JSON.stringify(poet))
 })
 
 var server = app.listen(8081, function () {
