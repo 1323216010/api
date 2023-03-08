@@ -1,6 +1,5 @@
+from fastapi import FastAPI, Request
 import json
-
-from fastapi import FastAPI, Body
 
 f = open('./json/ci.json', encoding='utf-8')
 d = json.load(f)
@@ -8,8 +7,13 @@ d = json.load(f)
 app = FastAPI()
 
 
-@app.get("/ci")
-async def explanation(body=Body(...)):
+@app.get("/explanation")
+async def explanation(request: Request):
+    ci = request.query_params.get("ci")
     for i in d:
-        if i['ci'] == body['ci']:
+        if i['ci'] == ci:
             return i['explanation']
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app="main:app",port=8084,reload=True)
