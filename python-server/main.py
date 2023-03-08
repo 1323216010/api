@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Request
 import json
+from fastapi import FastAPI, Request
+import uvicorn
 
 f = open('./json/ci.json', encoding='utf-8')
 d = json.load(f)
@@ -15,5 +16,4 @@ async def explanation(request: Request):
             return i['explanation']
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app="main:app",port=8084,reload=True)
+    uvicorn.run(app="main:app", port=8084, reload=True)
