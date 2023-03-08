@@ -15,14 +15,16 @@ import java.util.Map;
  **/
 @RestController
 public class PoetController {
-    @GetMapping ("/poet")
-    public List<Map<String, Object>> list(@RequestBody Map<String, Object> map) {
-        String separator = File.separator;
-        String path = System.getProperty("user.dir") + separator + "src" + separator + "main" + separator +
-                "resources" + separator + "json" + separator + "poet300.json";
+    String separator = File.separator;
+    String path = System.getProperty("user.dir") + separator + "src" + separator + "main" + separator +
+        "resources" + separator + "json" + separator + "poet300.json";
 
-        File file = new File(path);
+    File file = new File(path);
+
+    @GetMapping ("/poet")
+    public List<Map<String, Object>> list(@RequestParam Map<String, Object> map) {
         String str = null;
+
         try {
             str = FileUtils.readFileToString(file, "UTF-8");
         } catch (IOException e) {
