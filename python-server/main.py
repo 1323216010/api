@@ -15,5 +15,6 @@ async def explanation(request: Request):
         if i['ci'] == ci:
             return i['explanation']
 
+
 if __name__ == "__main__":
     uvicorn.run(app="main:app", port=8084, reload=True)
