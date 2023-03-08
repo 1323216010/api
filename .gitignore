@@ -1,3 +1,5 @@
 /python-server/.idea/
 /java-server/.idea/
 /java-server/target/
+/java-client/target/
+/java-client/.idea/
