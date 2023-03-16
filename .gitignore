@@ -3,3 +3,7 @@
 /java-server/target/
 /java-client/target/
 /java-client/.idea/
+/js-server/node_modules/
+/js-client/node_modules/
+/js-client/package-lock.json
+/js-server/package-lock.json

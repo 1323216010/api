@@ -1,12 +1,12 @@
 {
-    "name": "js-server",
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-      "start": "node main.js"
-    },
-    "dependencies": {
-      "express": "^4.17.1"
-    }
+  "name": "js-server",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.17.1"
+  }
 }
-  
