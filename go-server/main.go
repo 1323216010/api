@@ -29,5 +29,15 @@ func main() {
 		c.JSON(200, poet)
 	})
 
+	r.POST("/poet", func(c *gin.Context) {
+		body, _ := c.GetRawData()
+		var m map[string]interface{}
+		_ = json.Unmarshal(body, &m)
+
+		authorization := c.GetHeader("Authorization")
+		m["authorization"] = authorization
+		c.JSON(200, m)
+	})
+
 	r.Run(":8082")
 }
