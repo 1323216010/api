@@ -17,8 +17,12 @@ app.get('/poet', function (req, res) {
 })
 
 app.post('/poet', function (req, res) {
+    let obj = {}
+    obj.rawHeaders = req.rawHeaders
+    obj.body = req.body
+
     res.setHeader('Content-Type', 'application/json; charset=utf8');
-    res.end(JSON.stringify(req.body))
+    res.end(JSON.stringify(obj))
 })
 
 var server = app.listen(8081, function () {
