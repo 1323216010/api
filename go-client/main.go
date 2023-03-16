@@ -11,8 +11,8 @@ import (
 func main() {
 	m := make(map[string]interface{})
 	m["author"] = "李白"
-	str, _ := json.Marshal(m)
-	reader := bytes.NewReader(str)
+	b, _ := json.Marshal(m)
+	reader := bytes.NewReader(b)
 
 	request, _ := http.NewRequest("GET", "http://localhost:8082/poet", reader)
 	request.Header.Set("Content-Type", "application/json;charset=utf-8")
