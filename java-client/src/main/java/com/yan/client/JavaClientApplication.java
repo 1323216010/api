@@ -28,9 +28,6 @@ public class JavaClientApplication {
         Map<String, Object> body = new HashMap<>();
         body.put("author", "李白");
 
-        JSONObject param = new JSONObject();
-        param.put("param1","value1");
-
         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, httpHeaders);
         str = rest.postForObject("http://localhost:8083/poet", request, String.class);
         System.out.println(str);
