@@ -2,11 +2,13 @@ package com.yan.server.controller;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,4 +45,12 @@ public class PoetController {
         return list2;
     }
 
+    @PostMapping("/poet")
+    public Map<String, Object> list(@RequestParam Map<String, Object> body, HttpServletRequest request) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("body", body);
+        map.put("Authorization", request.getHeader("Authorization"));
+
+        return map;
+    }
 }
