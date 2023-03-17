@@ -35,7 +35,7 @@ func main() {
 		_ = json.Unmarshal(body, &m)
 
 		authorization := c.GetHeader("Authorization")
-		m["authorization"] = authorization
+		m["Authorization"] = authorization
 		c.JSON(200, m)
 	})
 
