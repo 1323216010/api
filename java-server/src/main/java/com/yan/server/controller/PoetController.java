@@ -23,7 +23,7 @@ public class PoetController {
 
     File file = new File(path);
 
-    @GetMapping ("/poet")
+    @GetMapping("/poet")
     public List<Map<String, Object>> list(@RequestParam Map<String, Object> map) {
         String str = null;
 
@@ -46,11 +46,10 @@ public class PoetController {
     }
 
     @PostMapping("/poet")
-    public Map<String, Object> list(@RequestParam Map<String, Object> body, HttpServletRequest request) {
+    public Map<String, Object> list(@RequestBody Map<String, Object> body, HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
         map.put("body", body);
         map.put("Authorization", request.getHeader("Authorization"));
-
         return map;
     }
 }
