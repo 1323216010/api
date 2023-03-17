@@ -8,7 +8,7 @@ d = json.load(f)
 
 app = FastAPI()
 
-@app.get("/explanation")
+@app.get("/explain")
 async def explanation(request: Request):
     ci = request.query_params.get("ci")
     for i in d:
@@ -16,7 +16,7 @@ async def explanation(request: Request):
             return i['explanation']
 
 
-@app.post("/explanation")
+@app.post("/explain")
 async def explanation(request: Request, dict: Dict):
     obj = {}
     obj['Headers'] = request.headers
